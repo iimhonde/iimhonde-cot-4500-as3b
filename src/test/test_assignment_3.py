@@ -1,7 +1,7 @@
 import numpy as np
 
 from src.main.assignment_3 import (
-    gaussian_jordan , lu_factor , is_diagonal_dominant#, is_pos_definite
+    gaussian_jordan , lu_factor , is_diagonal_dominant, is_pos_definite
 
 )
 
@@ -16,7 +16,7 @@ m_lu = np.array([
     [1, 1, 0, 3],
     [2, 1, -1, 1],
     [3, -1, -1, 2],
-    [-1, 2, 3, 1]
+    [-1, 2, 3, -1]
 ], dtype =float)
 
 m_dd = np.array([
@@ -28,12 +28,12 @@ m_dd = np.array([
     [3, 2,4, 0, 8]
 ], dtype =float)
 
+
 m_pd = np.array([
     [2, 2, 1],
     [2, 3, 0],
     [1, 0, 2]
 ], dtype =float)
-
 
 
 gauss_elim_sol = gaussian_jordan(m_gj)

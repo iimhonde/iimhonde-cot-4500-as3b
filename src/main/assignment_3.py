@@ -15,6 +15,7 @@ def gaussian_jordan(A):
     sol_vector = np.zeros(n)
     b = A[:, -1].copy()
 
+    #backward elimination 
     for i in reversed(range(n)):
         sum_ax = 0
         for j in range(i + 1, n):
@@ -23,7 +24,7 @@ def gaussian_jordan(A):
     
     return sol_vector
 
-    #backward elimination 
+    
   
 
 #LU Factorization
@@ -36,26 +37,44 @@ def lu_factor(A):
        L[i][i] = 1.0
 
        for j in range(i, n):
-            U[i][j] = A[i][j] - sum(L[i][k] * U[k][j] for k in range(i))
+            U[i][j] = A[i][j] - np.dot(L[i, :i], U[:i, j])
 
        for j in range(i + 1, n):
-            L[j][i] = (A[j][i] - sum(L[j][k] * U[k][i] for k in range(i))) / U[i][i]
+            L[j][i] = (A[j][i] - np.dot(L[j, :i], U[:i, i])) / U[i][i]
         
-       det = np.prod(np.diag(U))
+   det = np.prod(np.diag(U))
 
    return L.tolist(), U.tolist(), det
+
        
 #Diagonol Dominance
 
 def is_diagonal_dominant(A):
-    pass
+    n = A.shape[0]
+    for i in range(n):
+        row_sum = 0
+        for j in range(n):
+            if i != j:
+                row_sum += abs(A[i][j])
+        if abs(A[i][i]) < row_sum:
+            return False
+    
+    return True
+
+
 
 #Positive defnite
 
 def is_pos_definite(A):
-    pass
+    if np.array_equal(A, A.T):
+        try:
+            np.linalg.cholesky(A)
+            return True
+        except np.linalg.LinAlgError:
+            return False
 
-
+    else:
+        return False
 
 
  
