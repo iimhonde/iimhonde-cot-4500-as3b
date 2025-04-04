@@ -14,15 +14,13 @@ The project follows a structured format to ensure modularity and testability.
 ---
 
 ##  Project Structure
-cot-4500-as3b/ │-- src/ │ │-- main/ │ │ │-- assignment_3.py # Main implementation │ │-- test/ │ │ │-- test_assignment_3.py # Test cases │-- requirements.txt # Dependencies │-- README.md # Documentation
+cot-4500-as3b/ │-- src/ │ │-- main/ │ │ │-- assignment_3.py # Main implementation │ │-- test/ │ │ │-- test_assignment_3.py # Test cases │-- README.md # Documentation
 
 
 ---
 
 ##  Installation & Setup
 
-### ** Install Dependencies**
-This project requires third-party libraries listed in `requirements.txt`.  
 Run the following command to install them:
 ```bash
 pip install -r requirements.txt
